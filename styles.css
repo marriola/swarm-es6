@@ -22,17 +22,22 @@ a:hover {
 }
 
 a:visited {
-    color: #a60;
+    color: #da0;
 }
 
 a:visited:hover {
     color: black;
-    background-color: #a60;
+    background-color: #da0;
 }
 
 a:active {
     color: black;
-    background-color: #c80;
+    background-color: #cf0;
+}
+
+a:visited:active {
+    color: black;
+    background-color: #fc0;
 }
 
 #menu-outer {
@@ -105,3 +110,6 @@ a:active {
     padding: 5px;
 }
 
+#menu-outer:not(:hover) #picker-palette {
+    display: none;
+}

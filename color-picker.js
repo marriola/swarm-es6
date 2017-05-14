@@ -1,18 +1,18 @@
 let Colors = [
-    '#008',
-    '#080',
-    '#088',
-    '#800',
-    '#808',
-    '#880',
-    '#888',
-    '#fff',
-    '#00f',
-    '#0f0',
-    '#0ff',
-    '#f00',
-    '#f0f',
-    '#ff0',
+    '#00a',
+    '#0a0',
+    '#0aa',
+    '#a00',
+    '#a0a',
+    '#aa0',
+    '#aaa',
+    '#555',
+    '#11f',
+    '#1f1',
+    '#1ff',
+    '#f11',
+    '#f1f',
+    '#ff1',
     '#fff'
 ];
 
@@ -27,12 +27,11 @@ let ColorPicker = Vue.component('color-picker', {
     props: ['config'],
     methods: {
         openPicker: function() {
-            this.showPalette = true;
+            this.showPalette = !this.showPalette;
         },
         pick: function(c) {
             this.config.color = c;
             this.showPalette = false;
         }
     }
-    // template: '<div>hi</div>'
 });

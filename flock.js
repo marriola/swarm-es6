@@ -14,7 +14,7 @@ let flockStrategy = (function() {
         complexAvoid=false
     }) {
         function strategy(matrix, drone) {
-            if (Math.random() < wanderThreshold) {
+            if (Math.random() * 100 < wanderThreshold) {
                 randomWalk(matrix, drone);
                 return;
             }

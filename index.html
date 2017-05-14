@@ -15,23 +15,28 @@
 
         <span class="group">
             # of Drones
-            <input type="number" v-model="numDrones" />
+            <input type="number" v-model="numDrones" min="1" />
         </span>
 
         <span class="group">
             Radius
-            <input type="number" v-model="radius" />
+            <input type="number" v-model="radius" min="0" />
         </span>
 
         <span class="group">
-            Flock Threshold
-            <input type="number" v-model="flockThreshold" />
+            Flock Distance
+            <input type="number" v-model="flockThreshold" min="0" />
         </span>
 
         <span class="group">
-            Always Avoid <input type="checkbox" v-model="alwaysAvoid" />
-            Hard Avoid <input type="checkbox" v-model="hardAvoid" />
-            Complex Avoid <input type="checkbox" v-model="complexAvoid" />
+            Wander
+            <input type="number" v-model="wanderThreshold" min="0" max="100" />%
+        </span>
+
+        <span class="group">
+            <label><input type="checkbox" v-model="alwaysAvoid" /> Always Avoid</label>
+            <label><input type="checkbox" v-model="hardAvoid" />Hard Avoid</label>
+            <label><input type="checkbox" v-model="complexAvoid" />Complex Avoid</label>
         </span>
 
         <span class="group">
