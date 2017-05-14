@@ -1,5 +1,22 @@
 body, svg {
     background-color: black;
+    margin: 0;
+}
+
+button, input {
+    background-color: #222;
+    color: #ddd;
+    border: 1px solid #ddd;
+}
+
+button {
+    outline: none;
+    border-radius: 3px;
+}
+
+button:active {
+    background-color: #ddd;
+    color: #222;
 }
 
 input[type='number'] {
@@ -40,45 +57,31 @@ a:visited:active {
     background-color: #fc0;
 }
 
-#menu-outer {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 40px;
-}
-
-#menu-outer:hover {
-    height: 60px;
-}
-
 #menu {
     position: fixed;
+    top: 0;
+    height: auto;
+    width: 100%;
+    opacity: 0.2;
+    transition: opacity 0.05s linear;
+
+    padding: 10px 3px 10px 3px;
     cursor: default;
     user-select: none;
     font-size: 10pt;
     background-color: #333;
     color: #ddd;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 7px;
-    transition: all 0.05s linear 0.5s;
 }
 
-#menu .content {
-    height: 0;
-    overflow: auto;
+#menu-outer {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
 }
 
 #menu-outer:hover #menu {
-    padding: 10px 3px 10px 3px;
-    height: auto;
-    transition: all 0.05s linear 0s;
-}
-
-#menu-outer:hover #menu .content {
-    height: auto;
-    transition: height 0.05s linear 0.5s;
+    opacity: 1;
 }
 
 .group {
