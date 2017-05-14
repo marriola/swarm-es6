@@ -7,6 +7,10 @@ let Menu = new Vue( {
 
             let strategy = flockStrategy.strategyFactory({ radius, flockThreshold, wanderThreshold, hardAvoid, alwaysAvoid, complexAvoid });
             addDrones(matrix, strategy, numDrones, color);
+        },
+        
+        clearDrones: function() {
+            matrix.reset();
         }
     }
 });

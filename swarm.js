@@ -15,6 +15,8 @@ let SwarmConfig = {
     color: '#1f1'
 };
 
+let DefaultConfig = JSON.parse(JSON.stringify(SwarmConfig));
+
 function addDrones(matrix, strategy, n, color, stroke) {
     for (let i = 0; i < n; i++) {
         matrix.addDrone(strategy, color || randomColor(), stroke);

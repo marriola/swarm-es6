@@ -18,13 +18,19 @@ class Drone {
             if (this.strokeColor)
                 rect.setAttribute('stroke', this.strokeColor);
             svg.appendChild(rect);
+            this.svg = svg;
             this.rect = rect;
         }
     }
 
+    destroy() {
+        this.svg.removeChild(this.rect);
+    }
+
     clone() {
         let newDrone = new Drone(this.key, this.x, this.y, null, this.strategy, this.color, this.strokeColor);
-        this.rect = this.rect;
+        newDrone.rect = this.rect;
+        newDrone.svg = this.svg;
         return newDrone;
     }
 

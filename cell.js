@@ -11,6 +11,16 @@ class Cell {
         this.contents = this.contents.filter(x => x !== thing);
     }
 
+    clear() {
+        for (let thing of this.contents) {
+            if (thing.constructor.name === 'Drone') {
+                thing.destroy();
+            }
+        }
+
+        this.contents = [];
+    }
+
     get(type) {
         return this.contents.find(x => x.constructor.name === type);
     }
