@@ -1,11 +1,8 @@
-const TURN_LENGTH = 33.333333;
-const WIDTH = 660;
-const HEIGHT = 300;
-const CELL_WIDTH = 2;
-const CELL_HEIGHT = 2;
-const NUM_DRONES = 400;
-const SENSING_RADIUS = 20;
-const WANDER_THRESHOLD = 30;
+const TURN_LENGTH = 33;
+const WIDTH = 330;
+const HEIGHT = 150;
+const CELL_WIDTH = 4;
+const CELL_HEIGHT = 4;
 
 let SwarmConfig = {
     numDrones: 10,
@@ -14,7 +11,7 @@ let SwarmConfig = {
     wanderThreshold: 30,
     alwaysAvoid: false,
     hardAvoid: false,
-    complexAvoid: true,
+    complexAvoid: false,
     color: '#1f1'
 };
 

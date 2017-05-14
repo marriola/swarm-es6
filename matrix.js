@@ -28,6 +28,7 @@ class Matrix {
         this.height = rows * rowWidth;
         this.lastDroneKey = 0;
         this.drones = [];
+        this.moves = [];
 
         this.matrix = [];
         for (let r = 0; r < rows; r++) {
@@ -82,9 +83,7 @@ class Matrix {
         let fromCell = this.cellAt(x1, y1);
         let toCell = this.cellAt(x2, y2);
 
-        fromCell.remove(drone);
-        toCell.add(drone);
-        drone.move(x2, y2);
+        this.moves.push({ drone, fromCell, toCell, x: x2, y: y2 });
     }
 
     nearestNeighbor(startX, startY, radius) {
@@ -141,6 +140,13 @@ class Matrix {
             if (drone.strategy) {
                 drone.strategy(this, drone);
             }
+        }
+
+        while (this.moves.length) {
+            let { drone, fromCell, toCell, x, y } = this.moves.pop();
+            fromCell.remove(drone);
+            toCell.add(drone);
+            drone.move(x, y);
         }
     }
 }

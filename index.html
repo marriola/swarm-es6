@@ -19,13 +19,13 @@
         </span>
 
         <span class="group">
-            Radius
+            Search Radius
             <input type="number" v-model="radius" min="0" />
         </span>
 
-        <span class="group">
+        <span class="group" v-bind:class="{ disabled: alwaysAvoid }">
             Flock Distance
-            <input type="number" v-model="flockThreshold" min="0" />
+            <input type="number" v-model="flockThreshold" min="0" v-bind:disabled="alwaysAvoid" />
         </span>
 
         <span class="group">
@@ -34,9 +34,15 @@
         </span>
 
         <span class="group">
-            <label><input type="checkbox" v-model="alwaysAvoid" /> Always Avoid</label>
-            <label><input type="checkbox" v-model="hardAvoid" />Hard Avoid</label>
-            <label><input type="checkbox" v-model="complexAvoid" />Complex Avoid</label>
+            <label title="Instead of wandering randomly when neighbors enter flock threshold">
+                <input type="checkbox" v-model="hardAvoid" /> Avoid
+            </label>
+            <label title="Move vertically and horizontally in addition to moving in the opposite direction">
+                <input type="checkbox" v-model="complexAvoid" /> Complex Avoid
+            </label>
+            <label>
+                <input type="checkbox" v-model="alwaysAvoid" /> Always Avoid
+            </label>
         </span>
 
         <span class="group">

@@ -53,6 +53,8 @@ a:visited:active {
 
 #menu {
     position: fixed;
+    cursor: default;
+    user-select: none;
     font-size: 10pt;
     background-color: #333;
     color: #ddd;
@@ -112,4 +114,8 @@ a:visited:active {
 
 #menu-outer:not(:hover) #picker-palette {
     display: none;
+}
+
+.disabled {
+    color: #888;
 }
