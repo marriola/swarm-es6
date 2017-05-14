@@ -6,11 +6,62 @@
 
 <svg id="matrix"></svg>
 
+<div id="menu-outer">
+<div id="menu">
+    <div class="content">
+        <span class="group">
+            <color-picker v-bind:config="this"></color-picker>
+        </span>
+
+        <span class="group">
+            # of Drones
+            <input type="number" v-model="numDrones" />
+        </span>
+
+        <span class="group">
+            Radius
+            <input type="number" v-model="radius" />
+        </span>
+
+        <span class="group">
+            Flock Threshold
+            <input type="number" v-model="flockThreshold" />
+        </span>
+
+        <span class="group">
+            Always Avoid <input type="checkbox" v-model="alwaysAvoid" />
+            Hard Avoid <input type="checkbox" v-model="hardAvoid" />
+            Complex Avoid <input type="checkbox" v-model="complexAvoid" />
+        </span>
+
+        <span class="group">
+            <button type="button" v-on:click="addDrones()">Add</button>
+        </span>
+
+        <a class="github" target="_blank" href="http://github.com/marriola/swarm-es6">Github</a>
+    </div>
+</div>
+</div>
+
+<script type="text/x-template" id="color-picker-template">
+    <div style="display: inline-block" v-on:click="change()">
+        <span class="block" v-bind:style="{ backgroundColor: config.color }" v-on:click="openPicker()"></span>
+
+        <div id="picker-palette" v-bind:class="{ visible: showPalette }">
+            <span v-for="c in colors" class="block" v-bind:style="{ backgroundColor: c }" v-on:click="pick(c)"></span>
+        </div>
+    </div>
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.js" type="text/javascript"></script>
+
+<script src="color-picker.js" type="text/javascript"></script>
 <script src="cell.js" type="text/javascript"></script>
 <script src="drone.js" type="text/javascript"></script>
 <script src="flock.js" type="text/javascript"></script>
 <script src="matrix.js" type="text/javascript"></script>
 <script src="swarm.js" type="text/javascript"></script>
+<script src="config-panel.js" type="text/javascript"></script>
 
 </body>
 </hmtl>

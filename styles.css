@@ -1,3 +1,107 @@
 body, svg {
     background-color: black;
 }
+
+input[type='number'] {
+    width: 40px;
+}
+
+a.github {
+    float: right;
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #af0;
+}
+
+a:hover {
+    color: black;
+    background-color: #af0;
+}
+
+a:visited {
+    color: #a60;
+}
+
+a:visited:hover {
+    color: black;
+    background-color: #a60;
+}
+
+a:active {
+    color: black;
+    background-color: #c80;
+}
+
+#menu-outer {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 40px;
+}
+
+#menu-outer:hover {
+    height: 60px;
+}
+
+#menu {
+    position: fixed;
+    font-size: 10pt;
+    background-color: #333;
+    color: #ddd;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    transition: all 0.05s linear 0.5s;
+}
+
+#menu .content {
+    height: 0;
+    overflow: auto;
+}
+
+#menu-outer:hover #menu {
+    padding: 10px 3px 10px 3px;
+    height: auto;
+    transition: all 0.05s linear 0s;
+}
+
+#menu-outer:hover #menu .content {
+    height: auto;
+    transition: height 0.05s linear 0.5s;
+}
+
+.group {
+    padding-left: 10px;
+}
+
+.block {
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid black;
+    width: 12px;
+    height: 12px;
+}
+
+.block:not(:first-child) {
+    margin-left: 1px;
+}
+
+#picker-palette {
+    position: absolute;
+    display: block;
+    overflow: auto;
+    height: 0px;
+    transition: height 0.05s linear;
+}
+
+#picker-palette.visible {
+    height: auto;
+    border: 1px solid black;
+    background-color: #333;
+    padding: 5px;
+}
+
