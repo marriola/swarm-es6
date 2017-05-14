@@ -29,6 +29,7 @@ class Matrix {
         this.lastDroneKey = 0;
         this.drones = [];
         this.moves = [];
+        this.movesTaken = new Uint8Array(rows * cols);
 
         this.matrix = [];
         for (let r = 0; r < rows; r++) {
@@ -75,8 +76,9 @@ class Matrix {
         let { x: x1, y: y1 } = drone;
         let x2 = Math.max(0, Math.min(this.cols - 1, x1 + dx));
         let y2 = Math.max(0, Math.min(this.rows - 1, y1 + dy));
+        let coord = y2 * this.rows + x2;
 
-        if (block && !this.cellAt(x2, y2).isEmpty()) {
+        if (this.movesTaken[coord] || block && !this.cellAt(x2, y2).isEmpty()) {
             return;
         }
 
@@ -84,6 +86,7 @@ class Matrix {
         let toCell = this.cellAt(x2, y2);
 
         this.moves.push({ drone, fromCell, toCell, x: x2, y: y2 });
+        this.movesTaken[coord] = 1;
     }
 
     nearestNeighbor(startX, startY, radius) {
@@ -148,5 +151,7 @@ class Matrix {
             toCell.add(drone);
             drone.move(x, y);
         }
+
+        this.movesTaken.fill(0);
     }
 }
